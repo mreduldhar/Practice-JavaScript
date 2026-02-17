@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+  <head>
+    <title>NodeList vs HTMLCollection</title>
+  </head>
+  <body>
+    <ul id="list">
+      <li class="item">Item 1</li>
+      <li class="item">Item 2</li>
+    </ul>
+
+    <button id="addBtn">Add Item</button>
+
+    <script>
+      const nodeList = document.querySelectorAll(".item");
+      const htmlCollection = document.getElementsByClassName("item");
+
+      const addBtn = document.getElementById("addBtn");
+      const list = document.getElementById("list");
+
+      addBtn.addEventListener("click", function () {
+        const nodeList = document.querySelectorAll(".item");
+
+        const newItem = document.createElement("li");
+        newItem.className = "item";
+        newItem.textContent = "New Item";
+
+        list.appendChild(newItem);
+
+        console.log("NodeList length:", nodeList.length);
+        console.log("HTMLCollection length:", htmlCollection.length);
+      });
+    </script>
+
+    <script src="script.js"></script>
+  </body>
+</html>

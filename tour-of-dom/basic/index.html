@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic DOM</title>
+    <style>
+      h1 {
+        color: red;
+      }
+      .big-size {
+        font-size: 80px;
+      }
+      .blue-color {
+        color: blue;
+      }
+      .bg-color {
+        background-color: lightgreen;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="header">Basic DOM</h1>
+
+    <ul id="listItem">
+      <li>Html5</li>
+      <li>CSS3</li>
+      <li>JavaScript</li>
+      <li>DOM</li>
+    </ul>
+
+    <div id="question">
+      <p>learn What is DOM?</p>
+      <p>learn How Dom Actually Work?</p>
+      <p>learn Why we use DOM?</p>
+    </div>
+
+    <script>
+      let liCollection = document.getElementsByTagName("li");
+      let allP = document.getElementsByTagName("p");
+
+      for (const li of liCollection) {
+        console.log(li.innerText);
+      }
+      //   console.log(liCollection);
+
+      for (const element of allP) {
+        // console.log(element.innerText);
+      }
+
+      let listItem = document.querySelectorAll("#listItem li");
+      for (const element of listItem) {
+        // console.log(element.innerText);
+      }
+
+      let header = document.getElementById("header");
+      let question = document.getElementById("question");
+      header.setAttribute = "title";
+      header.title = "hello DOM";
+      he;
+    </script>
+  </body>
+</html>

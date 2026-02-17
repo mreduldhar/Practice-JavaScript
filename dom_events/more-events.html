@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>More Event</title>
+  </head>
+  <body>
+    <h1>More Event Handler</h1>
+    <button id="btn-mouse">Mouse</button>
+
+    <input type="text" id="input-field" />
+
+    <br />
+
+    <input type="text" id="input-delete" placeholder="write delete" />
+    <button id="btn-delete" disabled>delete</button>
+
+    <script>
+      document
+        .getElementById("btn-mouse")
+        .addEventListener("mouseenter", function () {
+          alert("Event triggered");
+        });
+
+      document
+        .getElementById("input-field")
+        .addEventListener("focus", function () {
+          console.log("focused");
+        });
+      document
+        .getElementById("input-field")
+        .addEventListener("blur", function () {
+          console.log("out");
+        });
+      document
+        .getElementById("input-field")
+        .addEventListener("keyup", function (e) {
+          console.log("key:", e.target.value);
+        });
+
+      document
+        .getElementById("input-delete")
+        .addEventListener("keyup", function (event) {
+          const text = event.target.value;
+          console.log("user is typing: ", text);
+
+          if (text === "delete") {
+            console.log("delete typed");
+            document.getElementById("btn-delete").removeAttribute("disabled");
+          } else {
+            console.log("something else");
+            document
+              .getElementById("btn-delete")
+              .setAttribute("disabled", true);
+          }
+        });
+    </script>
+  </body>
+</html>

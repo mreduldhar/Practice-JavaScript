@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comment Box</title>
+    <style>
+      .comment {
+        border: 2px solid green;
+        background-color: lightblue;
+        padding: 10px;
+        border-radius: 20px;
+      }
+      #comment-box {
+        margin-right: 20px;
+      }
+      /* #btn-post-comment {
+        margin-top: 50px;
+        padding: 10px;
+      } */
+    </style>
+  </head>
+  <body>
+    <h1>Write what in your mind.</h1>
+    <h3>All comments here.</h3>
+
+    <div class="comment-area">
+      <textarea name="" cols="60" rows="10" id="comment-box"></textarea>
+      <button id="btn-post-comment">Post Comment</button>
+    </div>
+
+    <div id="comment-container">
+      <p class="comment">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae
+        exercitationem sit laborum eveniet dicta distinctio asperiores
+        repellendus voluptatum perferendis natus, dolorem hic, nobis, delectus
+        laboriosam rem sint sunt ratione excepturi?
+      </p>
+      <p class="comment">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea dolorem
+        fugiat officia, earum tempore labore molestias sequi doloribus nesciunt
+        nulla magnam doloremque? Quia ratione id aliquam voluptas unde eius!
+        Adipisci?
+      </p>
+      <p class="comment">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea dolorem
+        fugiat officia, earum tempore labore molestias sequi doloribus nesciunt
+        nulla magnam doloremque? Quia ratione id aliquam voluptas unde eius!
+        Adipisci?
+      </p>
+    </div>
+
+    <script>
+      // step 1: get the btn element
+      const btnPost = document.getElementById("btn-post-comment");
+
+      btnPost.addEventListener("click", function () {
+        console.log("button post clicked");
+
+        // step 2: get the comment that written in the comment box
+        const commentBox = document.getElementById("comment-box");
+        // console.log(commentBox);
+
+        // get the new comment
+        const newComment = commentBox.value;
+        // console.log(newComment);
+
+        // step 3: get the parent node
+        const commentContainer = document.getElementById("comment-container");
+        // console.log(commentContainer);
+
+        if (!newComment) {
+          alert("write something");
+          return;
+        }
+        // step 4: create the new element for comment
+        const commentElement = document.createElement("p");
+        commentElement.classList.add("comment");
+        // step 5: add the new comment to the paragraph
+        commentElement.innerText = newComment;
+        // console.log(commentElement);
+
+        // localStorage.getItem(newComment);
+        // localStorage.setItem(newComment);
+
+        // save comment in localStorage
+        const savedComment = localStorage.getItem("newComment");
+        console.log("save comment: ", savedComment);
+
+        // step 6: append the child to the parent node
+        commentContainer.appendChild(commentElement);
+
+        // step 7: clear the comment box area
+        commentBox.value = "";
+      });
+
+      // comment.
+    </script>
+    <script src="./js/comment.js"></script>
+  </body>
+</html>
